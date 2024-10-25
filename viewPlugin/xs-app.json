@@ -1,0 +1,14 @@
+{
+  "welcomeFile": "/viewPlugin/index.html",
+  "authenticationMethod": "none",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/viewPlugin/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }
+  ]
+}

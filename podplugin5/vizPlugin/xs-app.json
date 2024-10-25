@@ -1,0 +1,14 @@
+{
+  "welcomeFile": "/vizPlugin/index.html",
+  "authenticationMethod": "none",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/vizPlugin/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }
+  ]
+}

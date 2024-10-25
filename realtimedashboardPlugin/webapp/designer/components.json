@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "realtimedashboardPlugin",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "company.custom.plugins.realtimedashboardPlugin.realtimedashboardPlugin",
+			"propertyEditor": "company.custom.plugins.realtimedashboardPlugin.realtimedashboardPlugin.builder.PropertyEditor",
+			"i18n": "company.custom.plugins.realtimedashboardPlugin.realtimedashboardPlugin.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "realtimedashboardPlugin",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER","OTHER"]
+		}   
+	]
+}

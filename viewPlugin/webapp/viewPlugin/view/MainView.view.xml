@@ -1,0 +1,173 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" 
+xmlns:core="sap.ui.core"
+xmlns:f="sap.f"
+		
+		
+xmlns:html="http://www.w3.org/1999/xhtml" 
+controllerName="company.custom.plugins.viewPlugin.viewPlugin.controller.MainView" 
+width="100%" height="100%"
+
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+		
+        <!-- <Panel 
+                id="panelPlugin"  
+                width="100%"
+                height="100%"
+                expandable="false"
+                expanded="false"
+                accessibleRole="Region"
+                backgroundDesign="Transparent"
+                class="sapUiNoContentPadding">  
+        <headerToolbar>
+            <Toolbar height="3rem">
+                <Button
+                    id="backButton"
+                    visible="false"
+                    text="{i18n>template.back.btn}"
+                    tooltip="{i18n>template.back.tooltip}"
+                    icon="sap-icon://nav-back"
+                    press="onBackPress"/>
+                <Title id="headerTitle" text=""/>
+                <ToolbarSpacer/>
+                <Button
+                    id="closeButton"
+                    visible="false"
+                    tooltip="{i18n>template.close.tooltip}"
+                    icon="sap-icon://decline"
+                    press="onClosePress"/>
+            </Toolbar>
+        </headerToolbar>
+        <content> 
+            <Text id="textPlugin" text="template" class="textFontSize" textAlign="Center" width="100%"/> -->
+           <f:DynamicPage id="_IDGenDynamicPage1"  headerExpanded="{/headerExpanded}">
+			
+                <f:title>
+				<f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+					<f:heading>
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+					</f:heading>
+					
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader id="_IDGenDynamicPageHeader1">
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem id="_IDGenFilterGroupItem1" name="order" label="Product" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox id="_IDGenMultiComboBox1"
+											name="order"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: 'data>/tabItems',
+												templateShareable: true
+											}"
+										>
+											<core:Item id="_IDGenItem1" key="{data>sfc}" text="{data>order}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem id="_IDGenFilterGroupItem2" name="material/material" label="Component" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox id="_IDGenMultiComboBox2"
+											name="material/material"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: 'data>/tabItems',
+												templateShareable: true
+											}"
+										>
+											<core:Item id="_IDGenItem2" key="{data>workcenter}" text="{data>material/material}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem id="_IDGenFilterGroupItem3" name="status" label="Operator" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox id="_IDGenMultiComboBox3"
+											name="status"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: 'data>/tabItems',
+												templateShareable: true
+											}"
+										>
+											<core:Item id="_IDGenItem3" key="{data>material}" text="{data>status}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+							
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+                <f:content>
+              
+                    <Table
+                        id="table"
+                        inset="false"
+                        sticky="ColumnHeaders"
+                         mode="MultiSelect"
+                        items="{data>/tabItems}">
+                        <headerToolbar>
+                            <Toolbar id="_IDGenToolbar1">
+                                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                                <Button id="editButton" text="Edit" icon="sap-icon://edit" press=".onEdit"/>
+                                <Button id="saveButton" text="Save" icon="sap-icon://save" press=".onSave"/>
+                                <Button id="clearButton" text="Clear" icon="sap-icon://clear-filter" press=".onClearFilters"/>
+
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <!-- Columns definition remains the same -->
+                            <Column id="_IDGenColumn1" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText1" text="Product"/>
+                            </Column>
+                            <Column id="_IDGenColumn2" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText2" text="Component"/>
+                            </Column>
+                            <Column id="_IDGenColumn31" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText31" text="Operator"/>
+                            </Column>
+                            <Column id="_IDGenColumn32" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText32" text="Scale Number"/>
+                            </Column>
+                            <Column id="_IDGenColumn33" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText33" text="Target"/>
+                            </Column>
+                            <Column id="_IDGenColumn34" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText34" text="Lower Tolerance"/>
+                            </Column>
+                            <Column id="_IDGenColumn35" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText35" text="Upper Tolerance"/>
+                            </Column>
+                            <Column id="_IDGenColumn36" minScreenWidth="Tablet" demandPopin="true">
+                                <Text id="_IDGenText36" text="Units"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+     <ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle">
+    <cells>
+        <Text id="_IDGenText9" text="{data>order}" />
+        <Text id="_IDGenText4" text="{data>material/material}" />
+        <Text id="_IDGenText5k" text="{data>material/description}" />
+        <Text id="_IDGenText4k" text="{data>status}" />
+        <Input id="_IDGenInputTarget" value="{data>buildQuantity}" editable="{data>editMode}" />
+        <Input id="_IDGenInputLowerTol" value="{data>lowerTolerance}" editable="{data>editMode}" />
+        <Input id="_IDGenInputUpperTol" value="{data>upperTolerance}" editable="{data>editMode}" />
+        <Input id="_IDGenInputUnits" value="{data>productionUnitOfMeasure}" editable="{data>editMode}" />
+    </cells>
+</ColumnListItem>
+
+                        </items>
+                    </Table>
+                </f:content>
+            </f:DynamicPage>
+            <!-- </content>
+	    </Panel>		 -->
+        
+  
+</mvc:View>

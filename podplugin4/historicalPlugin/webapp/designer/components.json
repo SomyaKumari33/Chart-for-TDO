@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "historicalPlugin",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "company.custom.plugins.historicalPlugin.historicalPlugin",
+			"propertyEditor": "company.custom.plugins.historicalPlugin.historicalPlugin.builder.PropertyEditor",
+			"i18n": "company.custom.plugins.historicalPlugin.historicalPlugin.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "historicalPlugin",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER"]
+		}   
+	]
+}

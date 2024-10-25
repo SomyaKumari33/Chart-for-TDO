@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "stockrequestPlugin",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "company.custom.plugins.stockrequestPlugin.stockrequestPlugin",
+			"propertyEditor": "company.custom.plugins.stockrequestPlugin.stockrequestPlugin.builder.PropertyEditor",
+			"i18n": "company.custom.plugins.stockrequestPlugin.stockrequestPlugin.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "stockrequestPlugin",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER"]
+		}   
+	]
+}

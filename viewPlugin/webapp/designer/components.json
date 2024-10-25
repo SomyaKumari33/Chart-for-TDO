@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "viewPlugin",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "company.custom.plugins.viewPlugin.viewPlugin",
+			"propertyEditor": "company.custom.plugins.viewPlugin.viewPlugin.builder.PropertyEditor",
+			"i18n": "company.custom.plugins.viewPlugin.viewPlugin.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "viewPlugin",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER"]
+		}   
+	]
+}
