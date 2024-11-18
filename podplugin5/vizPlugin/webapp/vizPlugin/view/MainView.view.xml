@@ -1,12 +1,12 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" 
-xmlns:vizFrame="sap.viz.ui5.controls.VizFrame"
-          displayBlock="true" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar"
-    xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout" xmlns:svm="sap.ui.comp.smartvariants"
-    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"     xmlns:m="sap.viz.ui5.controls"
-
-    xmlns:viz.data="sap.viz.ui5.data"
-    xmlns:chart="sap.viz.ui5.controls"
-    xmlns:dhe="sap.ui.comp.filterbar"
+<mvc:View displayBlock="true"
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns:viz.data="sap.viz.ui5.data" 
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
 xmlns:html="http://www.w3.org/1999/xhtml" controllerName="company.custom.plugins.vizPlugin.vizPlugin.controller.MainView" width="100%" height="100%">
 		
         <!-- <Panel 
@@ -41,39 +41,37 @@ xmlns:html="http://www.w3.org/1999/xhtml" controllerName="company.custom.plugins
             <Text id="textPlugin" text="template" class="textFontSize" textAlign="Center" width="100%"/>
         </content>
 	    </Panel>		 -->
-         <App id="_IDGenApp">
-        <Toolbar id="_IDGenToolbar">
-            <ToolbarSpacer id="_IDGenToolbarSpacer" ></ToolbarSpacer>
-            <Button id="_IDGenButton"
-                icon="sap-icon://close"
-                tooltip="Print"
-                press=".onBackButtonPress"
-                text="Back"
-                class="sapUiSmallMargin"/>
-        </Toolbar>
-        <Page id="_IDGenPage" title="Title of Chart">
-            <content>
-             <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType="stacked_column" width="100%" height="400px">
-                    <viz:dataset>
-                        <viz.data:FlattenedDataset id="_IDGenFlattenedDataset" data="{/chartData}">
-                            <viz.data:dimensions>
-                                <viz.data:DimensionDefinition id="_IDGenDimensionDefinition" name="Category" value="{category}" />
-                            </viz.data:dimensions>
-                            <viz.data:measures>
-                                <viz.data:MeasureDefinition id="_IDGenMeasureDefinition" name="Red" value="{red}" />
-                                <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" name="Green" value="{green}" />
-                            </viz.data:measures>
-                        </viz.data:FlattenedDataset>
-                    </viz:dataset>
-                    <viz:feeds>
-                        <!-- Notice that only one feed for the value axis -->
-                        <viz.feeds:FeedItem id="_IDGenFeedItem1" uid="valueAxis" type="Measure" values="Red,Green" />
-                        <viz.feeds:FeedItem id="_IDGenFeedItem2" uid="categoryAxis" type="Dimension" values="Category" />
-                    </viz:feeds>
-                </viz:VizFrame>
-            </content>
-        </Page>
-    </App>
+            <Page id="page" title="{i18n>title}">
+
+              <customHeader>
+            <Toolbar id="idChartPageToolbar">
+                <Button id="idChartPageToolbar-backbtn" text="Back"/>
+            </Toolbar>
+        </customHeader>
+        <content>
+             <layout:FixFlex id='chartFixFlex' minFlexSize="250">
+              
+                <layout:flexContent>
+                    <commons:ChartContainer id="idChartContainer"
+                        showFullScreen="true"
+                        showPersonalization="false"
+                        autoAdjustHeight="true">
+                        <commons:ChartContainerContent id="idChartContainerContent1">
+                            <commons:content>
+                                <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                                    height='100%' width="100%" vizType='timeseries_bullet'>
+                                    <viz:dependents>
+                                        <viz:Popover id="idPopOver"></viz:Popover>
+                                    </viz:dependents>
+                                </viz:VizFrame>
+                            </commons:content>
+                        </commons:ChartContainerContent>
+                    </commons:ChartContainer>                    
+                </layout:flexContent>
+            </layout:FixFlex>
+        </content>
+            </Page>
+
         
   
 </mvc:View>

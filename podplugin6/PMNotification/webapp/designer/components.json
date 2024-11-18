@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "PMNotification",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "company.custom.plugins.PMNotification.PMNotification",
+			"propertyEditor": "company.custom.plugins.PMNotification.PMNotification.builder.PropertyEditor",
+			"i18n": "company.custom.plugins.PMNotification.PMNotification.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "PMNotification",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER"]
+		}   
+	]
+}

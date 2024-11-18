@@ -74,7 +74,7 @@
                         >
                             <fb:filterGroupItems>
                                 <fb:FilterGroupItem
-                                    id="_IDGenFilterGroupItem1"
+                                    id="idMaterialFBI"
                                     name="material"
                                     label="Material"
                                     groupName="Group1"
@@ -120,7 +120,7 @@
                 sticky="ColumnHeaders"
                 mode="MultiSelect"
                 selectionChange=".onSelectionChange"
-            >
+                items="{viewModel>/tabItems}">
                 <headerToolbar>
                     <Toolbar id="_IDGenToolbar1">
                         <ToolbarSpacer id="_IDGenToolbarSpacer1" />
@@ -128,16 +128,16 @@
                             id="RequestButton"
                             text="Transfer Request"
                             icon="sap-icon://request"
-                            press=".onSubmit"
+                            press=".handleStockRequestSubmit"
                             type="Emphasized"
                             class="sapUiSmallMargin"
                         />
-                        <Button
+                        <!-- <Button
                             id="delButton"
                             text="Delete Row(s)"
                             icon="sap-icon://delete"
                             press="onDeleteRows"
-                        />
+                        /> -->
                         <!-- <Button id="editButton" text="Edit" icon="sap-icon://edit" press=".onEdit"/> -->
                         <!-- <Button id="saveButton" text="Save" icon="sap-icon://save" press=".onSave"/> -->
                         <Button
@@ -193,50 +193,45 @@
                     >
                         <Text text="Unit" />
                     </Column>
+                    <Column><Text text="Action"/></Column>
                 </columns>
                 <items>
                     <ColumnListItem>
-                        <Text text="{data>material}" />
-
-                        <Text text="{data>description}" />
-
+                        <Text text="{viewModel>material}" />
+                        <Text text="{viewModel>description}" />
                         <Input
-                            value=""
-                            editable="{data>editMode}"
-                            change=".onInputChange"
-                        />
+                            value="{viewModel>reqQty}"
+                            change=".onInputChange"/>
                         <!-- <Input id="inputTarget2" value="{data>issueStorageLocation}" editable="{data>editMode}" change=".onInputChange"/>
                                     <Input id="inputTarget3" value="{data>receiveStorageLocation}" editable="{data>editMode}" change=".onInputChange"/> -->
                         <ComboBox
                             name="issueStorageLocation"
-                            selectedKey="{data>/issueStorageLocation}"
+                            selectedKey="{viewModel>issueStorageLocation}"
                             selectionChange="onStorageLocationChange"
                             items="{
-                                                              path: 'data>/tabItems',
-                                                              templateShareable: true
-                                                          }"
-                        >
-                            <core:Item
-                                key="{data>issueStorageLocation}"
-                                text="{data>issueStorageLocation}"
-                            />
+                                path: 'viewModel>/storageLocations',
+                                templateShareable: true
+                            }">
+                            <core:Item key="{viewModel>storageLocation}" text="{viewModel>storageLocation}" />
                         </ComboBox>
                         <ComboBox
                             name="receiveStorageLocation"
-                            selectedKey="{data>/receiveStorageLocation}"
+                            selectedKey="{viewModel>receiveStorageLocation}"
                             selectionChange="onStorageLocationChange"
                             items="{
-                                                              path: 'data>/tabItems',
-                                                              templateShareable: true
-                                                          }"
-                        >
-                            <core:Item
-                                key="{data>receiveStorageLocation}"
-                                text="{data>receiveStorageLocation}"
-                            />
+                                path: 'viewModel>/storageLocations',
+                                templateShareable: true
+                            }">
+                            <core:Item key="{viewModel>storageLocation}" text="{viewModel>storageLocation}" />
                         </ComboBox>
 
-                        <Text text="{data>unitOfMeasure}" />
+                        <Text text="{viewModel>unitOfMeasure}" />
+                        <HBox>
+                            <Button 
+                                type="Reject"
+                                icon="sap-icon://delete"
+                                press="onDeleteRows" />
+                        </HBox>
                     </ColumnListItem>
                 </items>
                 <dependents>

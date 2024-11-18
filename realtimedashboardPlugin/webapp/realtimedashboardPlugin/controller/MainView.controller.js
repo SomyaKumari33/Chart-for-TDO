@@ -54,6 +54,16 @@ sap.ui.define([
             console.log("Data set in model:", oModel.getData());
 
             this._applyCardStyles();
+
+            //Apply filter to the tile container
+            var oHBox = this.getView().byId('tileContainer');
+            var oFilter = new sap.ui.model.Filter({
+                path: 'types',
+                test: function(oValue){
+                    return oValue.find(value=> value.type === 'PORTIONING' || value.type === 'FORMULATION');
+                }
+            });
+            oHBox.getBinding("items").filter([oFilter]);
         },
         
 
